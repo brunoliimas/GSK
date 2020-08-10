@@ -34,6 +34,9 @@
 	<meta name="msapplication-TileImage" content="assets/images/favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#091628">
 
+	<!-- CSS  -->
+	<link rel="stylesheet" href="style.css">
+
 	<!-- MMenu -->
 	<link rel="stylesheet" type="text/css" href="assets/css/libs/jquery.mmenu.all.css">
 
@@ -698,31 +701,61 @@
 
 
 
-	<!-- MODAL  -->
-	<div id="myModal" class="modal" tabindex="-1" role="dialog">
-		<div class="modal-dialog" role="document">
-		  <div class="modal-content">
-			<div class="modal-header">
-			  <div>
-				<h5 class="modal-title">PESQUISA</h5>
-				<p>Ei, a GSK está promovendo uma pesquisa para melhorarmos nossos conteúdos para você!</p>
-			  </div>
-			  <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-				<span aria-hidden="true">&times;</span>
-			  </button>
+	<!-- MODAL Pesquisa  -->
+	<div id="popupSearch" class="popup-container">
+		<div class="popup-search">
+			<div class="popup-header">
+				<div class="titulo">
+					<h3>Pesquisa</h3>
+					<p class="texto">Ei, a GSK está promovendo uma pesquisa para melhorarmos nossos conteúdos para você!</p>
+				</div>
+				<button id="fechar" class="fechar">
+					&times;
+				</button>
 			</div>
-			<div class="modal-body">
-			  <p>Quando foi a última vez que você conversou com o seu médico sobre a vacinação contra a meningite meningocócica?</p>
+			<div class="divisoria">
+				<img src="./assets/images/divisoria.png" alt="">
 			</div>
-			<div class="modal-footer">
-			  <button type="button" class="btn btn-primary">Mais de 6 meses</button>
-			  <button type="button" class="btn btn-primary">Menos de 6 meses</button>
-			  <button type="button" class="btn btn-primary">Menos de 1 ano</button>
+			<div class="popup-body">
+				<p class="pergunta"> Quando foi a última vez que você conversou com o seu médico sobre a vacinação contra a <strong>Meningite Meningocócica</strong>? </p>
+				<div class="botoes">
+					<button onclick="handleClick" id="um-ano-mais" class="botao">Um ano ou mais</button>
+					<button id="menos-seis-meses" class="botao">Menos de 6 meses</button>
+					<button id="menos-um-mes" class="botao">Menos de 1 mês </button>
+				</div>
 			</div>
-		  </div>
 		</div>
-	  </div>
+	</div>
 	<!-- MODAL END -->
+
+	<!-- MODAL Pesquisa  -->
+	<div id="obrigado" class="popup-obrigado">
+		<div class="popup">
+			<div class="popup-header">
+				<div class="titulo">
+					<h3>Pesquisa</h3>
+					<p class="texto">iasuhdaiuhdaisudhasdiuh!</p>
+				</div>
+				<button id="fechar" class="fechar">
+					&times;
+				</button>
+			</div>
+			<div class="divisoria">
+				<img src="./assets/images/divisoria.png" alt="">
+			</div>
+			<div class="popup-body">
+				<p class="pergunta"> Quando foi a última vez que você conversou com o seu médico sobre a vacinação contra a <strong>Meningite Meningocócica</strong>? </p>
+				<div class="botoes">
+					<button onclick="handleClick()" id="um-ano-mais" class="botao">Um ano ou mais</button>
+					<button id="menos-seis-meses" class="botao">Menos de 6 meses</button>
+					<button id="menos-um-mes" class="botao">Menos de 1 mês </button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- MODAL END -->
+
+ 
 
 
 
@@ -803,28 +836,30 @@
 				}
 			});
 		});
+	</script>
 
+	<script>
+		function handleClick() {
+			const poppuoObrigado = document.getElementById('obrigado')
+			console.log(poppuoObrigado)
+			document.querySelector('.popup-search').classList.remove('mostrar')
+			poppuoObrigado.classList.add('show')
 
-		// MODAL 
+		}
 
-		$(document).ready(function () {
-				$('#myModal').modal('show');
-			})
-	// $('.close').click(function (event) {
-	// 	$('#myModal').fadeOut();
-	// 	event.preventDefault();
-	// });
-
-	// $(document).ready(function () {
-	// 	var ls = localStorage.getItem("modal");
-	// 	if (!ls) {
-	// 		$('#myModal').modal('show');
-	// 	}
-	// })
-
-	// $('#myModal').on('shown.bs.modal', function () {
-	// 	localStorage.setItem("modal", false);
-	// });
+		function iniciar(popupId){
+			if (localStorage.fechaPopup !== popupId){
+				const popup = document.getElementById(popupId)
+				popup.classList.add('mostrar');
+				popup.addEventListener('click', (e) => {
+					if(e.target.id === 'fechar'){
+						popup.classList.remove('mostrar');
+						localStorage.fechaPopup = popupId;
+					}
+				});
+			}
+		}
+		iniciar('popupSearch');
 	</script>
 </body>
 

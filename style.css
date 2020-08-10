@@ -1,0 +1,147 @@
+.popup-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.popup-container.mostrar{
+    display: flex;
+}
+
+.popup-obrigado {
+    display: none;
+}
+
+.show {
+    display: flex;
+}
+
+.popup{
+    background-color: #ffffff;
+    border-radius: 5px;
+    width: 60%;
+    min-width: 300px;
+}
+
+@keyframes anima {
+    from{
+        opacity: .5;
+        transform: translate3d(0, -60px, 0);
+
+    } to {
+        opacity: 1;
+        transform: translate3d(0 , 0, 0);
+    }
+}
+.mostrar  .popup{
+    animation: anima .3s;
+}
+
+
+.popup-header{
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 30px 50px 0;
+    background-color: #159487;
+    color: #ffffff;
+    position: relative;
+}
+.fechar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-color: #107167;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    border-radius: 0 5px;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+.fechar:hover{
+    background-color: #0e665d;
+}
+.divisoria img{
+    width: 100%;
+}
+.popup-body{
+    padding: 0 50px 30px;
+}
+.titulo {
+    width: 70%;
+}
+.titulo h3{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+}
+.texto{
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    margin: 0;
+}
+.pergunta{
+    margin: 0;
+    padding: 20px 0 0;
+    font-size: 1.5rem;
+    font-family: 'Lato', sans-serif;;
+}
+.botoes{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 0 0;
+}
+.botao{
+    padding: 10px 20px;
+    background-color: #159487;
+    color: #ffffff;
+    border-radius: 50px;
+    border: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+}
+.botao:hover{
+    background-color: #107167;
+}
+
+@media (max-width: 770px) {
+    .popup{
+        background-color: #ffffff;
+        border-radius: 5px;
+        width: 80%;
+        min-width: 300px;
+    }
+    .popup-header{
+        padding: 30px 20px 0;
+    }
+    .titulo {
+        width: 100%;
+    }
+    .popup-body{
+        padding: 0 20px 30px;
+    }
+    .pergunta{
+        font-size: 1.2rem;
+    }
+    .botoes{
+        height: 170px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .botao{
+        width: 90%;
+    }
+}
