@@ -18,10 +18,6 @@
     display: none;
 }
 
-.show {
-    display: flex;
-}
-
 .popup{
     background-color: #ffffff;
     border-radius: 5px;

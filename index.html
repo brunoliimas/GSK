@@ -83,7 +83,7 @@
 
 	<!--
 		Event snippet for GSK - audience on https://urldefense.proofpoint.com/v2/url?u=https-3A__www.gsk.casadevacinasgsk.com.br_meningite_&d=DwIGaQ&c=Ftw_YSVcGmqQBvrGwAZugGylNRkk-uER0-5bY94tjsc&r=Efb9fxwKj17NYN_Smqkd8Hjc-bZZirv_qiSxjouoCbNi9lO9mc5nyjMy1WwQP4sU&m=4vPkrQ1xMH5AyF3fD_iw5TY8tBM62CXWjkwrbKOqywg&s=xq-461AVyfUiS9GJmSsa3FVHiOImeK72OaeYp4OemwM&e= : Please do not remove.
-		Place this snippet on pages with events you’re tracking. 
+		Place this snippet on pages with events you’re tracking.
 		Creation date: 02/28/2020
 		-->
 	<script>
@@ -703,38 +703,11 @@
 
 	<!-- MODAL Pesquisa  -->
 	<div id="popupSearch" class="popup-container">
-		<div class="popup-search">
+		<div class="popup" id="primeiro">
 			<div class="popup-header">
 				<div class="titulo">
 					<h3>Pesquisa</h3>
 					<p class="texto">Ei, a GSK está promovendo uma pesquisa para melhorarmos nossos conteúdos para você!</p>
-				</div>
-				<button id="fechar" class="fechar">
-					&times;
-				</button>
-			</div>
-			<div class="divisoria">
-				<img src="./assets/images/divisoria.png" alt="">
-			</div>
-			<div class="popup-body">
-				<p class="pergunta"> Quando foi a última vez que você conversou com o seu médico sobre a vacinação contra a <strong>Meningite Meningocócica</strong>? </p>
-				<div class="botoes">
-					<button onclick="handleClick" id="um-ano-mais" class="botao">Um ano ou mais</button>
-					<button id="menos-seis-meses" class="botao">Menos de 6 meses</button>
-					<button id="menos-um-mes" class="botao">Menos de 1 mês </button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- MODAL END -->
-
-	<!-- MODAL Pesquisa  -->
-	<div id="obrigado" class="popup-obrigado">
-		<div class="popup">
-			<div class="popup-header">
-				<div class="titulo">
-					<h3>Pesquisa</h3>
-					<p class="texto">iasuhdaiuhdaisudhasdiuh!</p>
 				</div>
 				<button id="fechar" class="fechar">
 					&times;
@@ -755,7 +728,26 @@
 	</div>
 	<!-- MODAL END -->
 
- 
+	<!-- MODAL Pesquisa  -->
+	<div id="obrigado" class="popup-container">
+		<div class="popup">
+			<div class="popup-header">
+				<div class="titulo">
+					<h3>Obrigado</h3>
+					<p class="texto">iasuhdaiuhdaisudhasdiuh!</p>
+				</div>
+				<button id="fechar" class="fechar">
+					&times;
+				</button>
+			</div>
+			<div class="divisoria">
+				<img src="./assets/images/divisoria.png" alt="">
+			</div>
+		</div>
+	</div>
+	<!-- MODAL END -->
+
+
 
 
 
@@ -838,15 +830,7 @@
 		});
 	</script>
 
-	<script>
-		function handleClick() {
-			const poppuoObrigado = document.getElementById('obrigado')
-			console.log(poppuoObrigado)
-			document.querySelector('.popup-search').classList.remove('mostrar')
-			poppuoObrigado.classList.add('show')
-
-		}
-
+<script>
 		function iniciar(popupId){
 			if (localStorage.fechaPopup !== popupId){
 				const popup = document.getElementById(popupId)
@@ -860,6 +844,13 @@
 			}
 		}
 		iniciar('popupSearch');
+
+		function handleClick() {
+			const popupObrigado = document.getElementById('obrigado')
+			const popupSearch = document.getElementById('primeiro')
+			popupSearch.style.display = 'none'
+			popupObrigado.style.display = 'flex'
+		}
 	</script>
 </body>
 
