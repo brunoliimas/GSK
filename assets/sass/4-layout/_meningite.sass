@@ -1,0 +1,150 @@
+// ==========================================================================
+// LAYOUT > Meningite
+// ==========================================================================
+#banner
+	.owl-item
+		margin: 0
+
+	.next-slide, .prev-slide
+		font-size: 3rem
+		padding: 0
+		border: 0
+		background: transparent
+		box-shadow: none
+
+		&:hover,
+		&:active
+			border: 0
+			background: transparent
+			box-shadow: none
+			
+
+	.owl-navigation
+		position: absolute
+		top: -150px
+		z-index: 9
+
+	.item
+		padding: 150px 0 100px 0
+
+		h3
+			font-size: 35px
+
+		h2 
+			font-size: 130px
+			line-height: 135px
+			margin-top: 20px
+			font-weight: 900
+			position: relative
+			z-index: 9
+
+	.video-btn
+		border: 0
+		background: rgba(255, 255, 255, 0.8)
+		border-radius: 50%
+		width: 80px
+		height: 80px
+		font-size: 3rem
+		position: absolute
+		top: 0
+		right: 0
+		left: 0
+		margin: auto
+		bottom: 0
+		@include transition(all .2s ease-out)
+
+		&:hover
+			background: rgba(255, 255, 255, 1)
+			@include transition(all .2s ease-out)
+
+#modalVideo
+	.modal-dialog
+		max-width: 1200px
+		margin: 30px auto
+
+	.modal-content
+		padding: 0
+		border: 0
+		border-radius: 0
+
+	.modal-body 
+		position: relative
+		padding: 0px
+
+	.close
+		position: absolute
+		right: -30px
+		top: 0
+		z-index: 999
+		font-size: 2rem
+		font-weight: normal
+		color:#fff
+		opacity: 1
+
+.box-baby
+	position: relative
+	
+	&::after
+		content: ''
+		width: calc(100% - 40px)
+		height: calc(100% - 40px)
+		border: 1px solid #FFF
+		position: absolute
+		right: 0
+		left: 0
+		bottom: 0
+		top: 0
+		margin: auto
+
+
+#meningite
+	.w-40
+		max-width: 35%
+	
+	.w-30
+		max-width: 30%
+
+	.card-header 
+		padding: 0
+		background: none
+		border: 0
+
+		.btn
+			padding:  1.25rem 1.55rem
+			display: block
+			font-weight: bold
+			background-color: #189e90
+			background-color: -moz-linear-gradient(top,  #189e90 0%, #159185 100%)
+			background-color: -webkit-linear-gradient(top,  #189e90 0%,#159185 100%)
+			background-color: linear-gradient(to bottom,  #189e90 0%,#159185 100%)
+			font-size: 1.2rem
+			position: relative
+			
+			&::after
+				content: "\e900"
+				top: 18px
+				right: 20px
+				position: absolute
+				font-size: 1.5rem
+				font-family: 'icomoon'
+			
+			&[aria-expanded="true"]::after
+				content: "\e901"
+				font-size: 1.5rem
+				font-family: 'icomoon'
+
+			&:hover,
+			&:focus,
+			&:active
+				text-decoration: none
+	
+	.mb-50
+		margin-bottom: 50px
+
+	.card
+		.card-body
+			margin-top: -2px
+			background-color: map-get($color-config, "light-gray")
+			padding: 30px
+			border-radius: 0 0 .5rem .5rem
+

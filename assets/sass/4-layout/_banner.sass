@@ -1,0 +1,136 @@
+// ==========================================================================
+// LAYOUT > BANNER
+// ==========================================================================
+
+.owl-banner
+	display: block
+	width: 100%
+	margin: 0
+	padding: 0
+	background-color: map-get($color-config, "purple-dark")
+	position: relative
+	&.owl-carousel .owl-item img 
+		display: initial
+		width: initial !important
+
+	.owl-item 
+		margin-bottom: 30px
+	
+	.owl-item .item
+		min-height: calc(100vh - (280px))
+		.container
+			min-height: calc(100vh - (280px))
+			.row	
+				height: 100%
+
+	.owl-item .item[data-model="default"]
+		display: block
+		margin: 0
+		padding: 0
+		overflow: hidden
+		a
+			display: block
+			width: 100%
+			img
+				max-width: 70%
+				max-height: 500px
+
+
+	.owl-item .item[data-model="promotional"]
+		display: block
+		margin: 0
+		padding: 0
+		background-position: center center
+		background-size: cover
+		background-repeat: no-repeat
+		background-color: map-get($color-config, "blue-dark")
+		overflow: hidden
+		min-height: 450px
+		a
+			display: block
+			width: 100%
+		.box-content
+			flex: 0 0 100% !important
+			max-width: 100% !important
+			position: relative
+			padding-top: 10px
+			padding-bottom: 10px
+			img
+				max-width: 100%
+			*
+				position: relative
+				z-index: 10
+				opacity: 0
+				@include transition(all 1.5s ease-out)
+
+	.owl-item.active .box-content
+		*
+			opacity: 1!important
+
+	.owl-dots
+		position: absolute
+		width: 100%
+		left: 0
+		bottom: 50px
+		z-index: 20
+		text-align: center
+		.owl-dot
+			display: inline-block
+			position: relative
+			width: 15px
+			height: 15px
+			border-radius: 50%
+			background-color: map-get($color-config, "green")
+			cursor: pointer
+			margin: 3px
+			outline: 0
+			opacity: .1
+			@include transition(all .2s ease-out)
+			&.active
+				opacity: 1
+			&.active:hover,
+			&:hover
+				opacity: .5
+
++media-breakpoint-down(xl)
+
++media-breakpoint-down(lg)
+	.owl-banner
+		.owl-dots
+			position: initial!important
+			margin-top: -30px
+			padding: 5px 15px
+			text-align: center
+			top: initial
+			width: 100%
+			margin-left: 0
+
++media-breakpoint-down(md)
+	.owl-banner
+		.owl-item.active .box-content .effect,
+		.owl-item .box-content .effect
+			right: 0!important
+		.owl-item .item 
+			min-height: initial!important
+		.owl-item.active .box-content
+			*
+				opacity: 1!important
+		.owl-item .item[data-model="default"]
+			.box-content img
+				max-width: 100%
+				max-height: initial
+
+		.owl-item .item
+			padding: 20px 0
+			min-height: initial
+			.container
+				min-height: initial
+
+
++media-breakpoint-down(sm)
+	.owl-banner
+		.owl-item .item[data-model="promotional"]
+			background-image: none !important
+		.owl-item.active .box-content .effect,
+		.owl-item .box-content .effect
+			right: -500px!important

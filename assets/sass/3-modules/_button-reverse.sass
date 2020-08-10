@@ -1,0 +1,49 @@
+// ==========================================================================
+// MODULES > BUTTON REVERSE
+// BOOTSTRAP.SCSS REQUIRED
+// ==========================================================================
+// Add to variables file:
+//		  $color-config:(	 "blue":   #0000FF, 
+//							  "red":	#ff0000
+//		  );
+//		  **delete "blue" and "red", and add every main colors of your theme**
+//
+// Usage in HTML:
+// <a href="#" class="btn-reverse-blue-red "><!-- there must be a space after the class name -->
+//   HOVER ME!!
+// </a>
+
+[class*="btn-reverse"]
+	display: inline-block
+	padding: 15px 25px
+	border-radius: 30px
+	font-weight: bold
+	background-color: #c0c0c0				  // DEFAULT STARTING COLOR
+	color: #FFF							  // DEFAULT ENDING COLOR
+	text-align: center
+	border: 0
+	transition: all 0.2s ease-out !important
+
+	&:focus
+		box-shadow: 0 !important
+		outline: 0 !important
+	
+	&:hover,
+	&:active,
+	&:focus
+		color: #FFF
+		text-decoration: none
+	
+	&.disabled
+		opacity: .5 !important
+		cursor: not-allowed
+		pointer-events: none 
+
+	// White
+	&[class*="pink"]:hover,
+	&[class*="pink"]:active,
+	&[class*="pink"]:focus
+		color: #FFF
+
+	&[class*="pink"]
+		background-color: map-get($color-config, "pink")
